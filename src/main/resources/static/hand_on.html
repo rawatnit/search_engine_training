@@ -12,8 +12,10 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.12.4.js"></script>
   <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  
+  
 <style>
-
 nav.navbar.navbar {
     background-color: #0D47A1;
 }
@@ -22,14 +24,13 @@ a.navbar-brand {
     font-family: 'Abril Fatface';
     font-size: 180%;
 }
-
 a.headerLeft {
     color: white;
     font-family: 'Abril Fatface';
 	font-size: 100%;
 }
 div#colLeftRow1 {
-     margin-left: 3%;
+     margin-left: 1%;
  }
  
   .panel.panel-default {
@@ -37,13 +38,12 @@ div#colLeftRow1 {
 }
 #myProgress {
   position: relative;
-  width: 100%;
+  width: 101%;
   height: 30px;
   background-color: #abaaaa;
   margin-top: 3%;
   border-radius: 6px;
 }
-
 #myBar {
   position: absolute;
   width: 60%;
@@ -51,7 +51,6 @@ div#colLeftRow1 {
   background-color: #4CAF50;
   border-radius: 6px;
 }
-
 #label {
   text-align: center;
   line-height: 30px;
@@ -59,8 +58,8 @@ div#colLeftRow1 {
 }
 div#secondRow {
     margin-top: 1%;
-    margin-left: 1%;
-    margin-right: 1%;
+    margin-left: 8%;
+    margin-right: -9%;
 }
 div#mainContent {
     margin-left: 1%;
@@ -78,14 +77,12 @@ button.btn.btn-primary.button3 {
 .bodyStyle {
     background-color: #dcd8d8;
 }
-
 div.scroll {
     width: 98%;
     height: 400px;
     overflow: scroll;
     
 } 
-
 </style>
   </head>
 
@@ -118,7 +115,7 @@ div.scroll {
 		</div>
 		<div class="col-md-7" id="colLeftRow1"> 
 			<div class="row">
-				<div class="col-md-12" style="margin-top: -15px;">
+				<div class="col-md-12" style="margin-top: -15px; margin-left: 8%;">
 					<div id="myProgress">
 						<div id="myBar">
 							<div id="label">60%
@@ -139,10 +136,10 @@ div.scroll {
 	 <div class="row">
 		
 		<div class="col-md-12" id="mainContent"> 
-			<div class="scroll">
+			
 				<iframe src="sample.html"  style="width:98%; height:400px;" >
 				</iframe>
-			</div>
+			
 		</div>	
 	</div> 
 	
@@ -158,10 +155,10 @@ div.scroll {
 	
 	<div class="row">
 		<div class="col-md-3" > 
-			<button type="button"  class="btn btn-primary button1" id="aufgabe" onclick= "aufgabe();">Aufgabe Lösen</button>
+			<button type="button"  class="btn btn-primary button1" id="aufgabe" onclick= "aufgabe();">Aufgabe Lösen (50 Punkte Abzug)</button>
 		</div>	
 		<div class="col-md-6" > 
-			<button type="button" class="btn btn-primary button2" id="hinweis" onclick="hinweis();"> Hinweis zur Lösung erhalten </button>
+			<button type="button" class="btn btn-primary button2" id="hinweis" onclick="hinweis();"> Hinweis zur Lösung erhalten (10 Punkte Abzug) </button>
 		</div>	
 		<div class="col-md-3" > 
 			<button type="button" class="btn btn-primary button3" id="zuruck" onclick="zuruck();">zurück zur Erläuterung</button>
@@ -174,6 +171,9 @@ div.scroll {
 </div>
 
 <div id="dialog-confirm"> </div>
+<div id="dialog-aufgabe-confirm"> </div>
+
+
 	
 
 
@@ -182,78 +182,96 @@ div.scroll {
 
 
  <script>
-
 var aux=60;
 var divMsg="Aktuelles Level : Neueinsteiger <br> Gesammelte Punkte: ";
 $("#showValue").append(divMsg +   aux );
-
 var aufgabe = function(){
-	var isOk = confirm("Press a button!");
-	if(isOk==true){
-		aux-=50;
-		alert("Sie hätten folgenden Text eingeben können: Billerstedt AND Speiseplan");
 		
-		var html = "<html><head></head><body><div id='msg'>";
+		//alert("Sie hätten folgenden Text eingeben können: Billerstedt AND Speiseplan");
+		
+		if(aux >=50 ){
+			aux-=50;
+			
+			//alert('hi 33');
+			$("#dialog-aufgabe-confirm").html('');		
+			$("#dialog-aufgabe-confirm").append("Sie hätten folgenden Text eingeben können: Billerstedt AND Speiseplan" );
+		   	$("#dialog-aufgabe-confirm").dialog('open');
+		   	
+		 	$('#showValue').html('');
+		   	$("#showValue").append(divMsg +   aux );
+		   	
+		   /* 	 var html = "<html><head></head><body><div id='msg'>";
+			html += "<h2 style='text-align:center;'> Sie haben die Aufgabe erfolgreich </h2>";
+			html += "<h2 style='text-align:center;'>gelöst!</h2>";
+			html += "<h2 id='punkte' style='text-align:center;'>Punkte: </h2>"; 
+			
+	         popUp(html); */
+	        
+	        //aux-=50;
+		//	$("#punkte").append(" " +   aux + "!" ); 
+			
+		}else{
+			$("#dialog-confirm").html('');		
+			$("#dialog-confirm").append("Leider verfügen Sie nicht über ausreichend Punkte um die Aufgabe lösen zu lassen." );
+		   	$("#dialog-confirm").dialog('open');
+		
+			
+		}
+		
+		/* var html = "<html><head></head><body><div id='msg'>";
 		html += "<h2 style='text-align:center;'> Sie haben die Aufgabe erfolgreich </h2>";
 		html += "<h2 style='text-align:center;'>gelöst!</h2>";
-		html += "<h2 id='punkte' style='text-align:center;'>Punkte: </h2>";
+		html += "<h2 id='punkte' style='text-align:center;'>Punkte: </h2>"; */
 		
-        popUp(html);
+       /*  popUp(html);
         
         //aux-=50;
-		$("#punkte").append(" " +   aux + "!" );
+		$("#punkte").append(" " +   aux + "!" ); */
 		
-
-		
-	}
-	
-	
-	
 }
-
-
+	
+	
+	
 var hinweis = function(){
-		aux-=10;
+	
+	if(aux <10 ){
 		
+		$("#dialog-confirm").html('');		
+		$("#dialog-confirm").append("Leider verfügen Sie nicht über ausreichend Punkte um sich einen Hinweis zur Lösung anzeigen zu lassen." );
+	   	$("#dialog-confirm").dialog('open');
+		
+	}else{
+		aux-=10;
+		$("#dialog-confirm").html('');		
 	$("#dialog-confirm").append("Um einen Speiseplan zu finden, würde sich beispielsweise der Suchbegriff Kantine oder Speiseplan in Verbindung mit dem Ort anbieten." );
    	 $("#dialog-confirm").dialog('open');
    	 
    	$('#showValue').html('');
    	$("#showValue").append(divMsg +   aux );
    	
+	}
+   	
  
 			
-
 	
 }
-
-
-
 var zuruck = function(){
 	window.open("explainPage.html", "_self");
 	
 	
 }
-
-
-
 function popUp(html){
-
 var frog = window.open("result.html","_self")
 frog.document.open()
 frog.document.write(html)
 frog.document.close()
-
 }
-
 var handle =  function(e){
     if(e.keyCode === 13){
         e.preventDefault(); 
-
         
     }
 }
-
 $( function() {
     $( "#dialog-confirm" ).dialog({
       resizable: false,
@@ -271,6 +289,35 @@ $( function() {
       }
     });
   } );
-
+  
+  
+$( function() {
+    $( "#dialog-aufgabe-confirm" ).dialog({
+      resizable: false,
+      height: "auto",
+      autoOpen: false,
+      width: 400,
+      modal: true,
+      buttons: {
+        "OK": function() {
+          $( this ).dialog( "close" );
+          
+          var html = "<html><head></head><body><div id='msg'>";
+			html += "<h2 style='text-align:center;'> Sie haben die Aufgabe erfolgreich </h2>";
+			html += "<h2 style='text-align:center;'>gelöst!</h2>";
+			html += "<h2 id='punkte' style='text-align:center;'>Punkte: </h2>"; 
+			
+	         popUp(html);
+	        
+	        //aux-=50;
+			$("#punkte").append(" " +   aux + "!" ); 
+        },
+         Cancel: function() {
+          $( this ).dialog( "close" );
+        } 
+      }
+    });
+  } );
+  
 </script>
 </html>

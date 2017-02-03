@@ -9,15 +9,15 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.12.4.js"></script>
   <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  
 <style>
 
-input.SearchBox {
+input#SearchBox {
     margin-top: 10%;
     margin-left: 2%;
     margin-bottom: 2%;
@@ -40,12 +40,10 @@ input.SearchBox {
 			
 			<div class="row">
 				<div class="col-md-10" >
-					<input type="text" name="search" placeholder="Enter the Text to search" class="SearchBox" id="searchElement" onkeypress="handle(event);">
-<label style="color:#4C4646;">Erweitert Anleitung Zur Suche</label>
-
+					<input type="text" name="search" placeholder="Type here to search" id="searchElement" onkeypress="handle(event);">
+					Erweitert Anleitung Zur Suche
 					
-					<div id="dialog-confirm"> </div> 
-					
+					<div id="dialog-confirm"> </div>
 				</div>
 				<div class="col-md-2">
 					<img src="img/logo.png" class="logo" ></img>
@@ -63,6 +61,7 @@ input.SearchBox {
 
 
 
+</body>
 
 <script>
 
@@ -97,12 +96,11 @@ var handle =  function(e){
         			optionalFlag++;
         	}
         }
-       //alert("mandatFlag : " + mandatFlag + "optionalFlag : " + optionalFlag );
+       alert("mandatFlag : " + mandatFlag + "optionalFlag : " + optionalFlag );
         
         if((mandatFlag < 1) || (optionalFlag<1)){
         	
         	//alert("Leider haben Sie nicht den richtigen Suchbegriff eingegeben");
-        	$("#dialog-confirm").html('');
         	$("#dialog-confirm").append("Leider haben Sie nicht den richtigen Suchbegriff eingegeben" );
         	 $("#dialog-confirm").dialog('open');
         	
@@ -110,7 +108,8 @@ var handle =  function(e){
         	
         }else{
         	
-
+        	
+        
        	aux+=50;
         var html = "<html><head></head><body><div id='msg'>";
 		html += "<h2 style='text-align:center;'> Sie haben die Aufgabe erfolgreich </h2>";
@@ -166,5 +165,4 @@ frog.document.close()
 }
 
 </script>
-</body>
 </html>
