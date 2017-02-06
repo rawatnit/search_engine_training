@@ -1,149 +1,215 @@
 <!DOCTYPE html>
-<html >
+<html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <title>search Engine</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  
-  
-  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
 <style>
+
+input.SearchBox {
+    margin-top: 10%;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    width: 52%;
+    height: 37px;
+}
+
 nav.navbar.navbar {
-    background-color: #0D47A1;
+	background-color: #0D47A1;
 }
+
 a.navbar-brand {
-    color: white;
-    font-family: 'Abril Fatface';
-    font-size: 180%;
+	color: white;
+	font-family: 'Abril Fatface';
+	font-size: 180%;
 }
+
 a.headerLeft {
-    color: white;
-    font-family: 'Abril Fatface';
+	color: white;
+	font-family: 'Abril Fatface';
 	font-size: 100%;
 }
+
 div#colLeftRow1 {
-     margin-left: 1%;
- }
- 
-  .panel.panel-default {
-    height: 105%;
+	margin-left: 1%;
 }
+
+.panel.panel-default {
+	height: 105%;
+}
+
 #myProgress {
-  position: relative;
-  width: 101%;
-  height: 30px;
-  background-color: #abaaaa;
-  margin-top: 3%;
-  border-radius: 6px;
+	position: relative;
+	width: 100%;
+	height: 30px;
+	background-color: #abaaaa;
+	margin-top: 3%;
+	border-radius: 6px;
 }
+
 #myBar {
-  position: absolute;
-  width: 60%;
-  height: 100%;
-  background-color: #4CAF50;
-  border-radius: 6px;
+	position: absolute;
+	width: 60%;
+	height: 100%;
+	background-color: #4CAF50;
+	border-radius: 6px;
 }
+
 #label {
-  text-align: center;
-  line-height: 30px;
-  color: white;
+	text-align: center;
+	line-height: 30px;
+	color: white;
 }
+
 div#secondRow {
-    margin-top: 1%;
-    margin-left: 8%;
-    margin-right: -9%;
+	margin-top: 1%;
+	margin-left: 8%;
+	margin-right: -8%;
 }
+
 div#mainContent {
-    margin-left: 1%;
+	margin-left: 1%;
 }
+
 button.btn.btn-primary.button1 {
-    margin-left: 4%;
-    width: 100%;
+	margin-left: 4%;
+	width: 106%;
 }
+
 button.btn.btn-primary.button2 {
-    width: 100%;
+	width: 77%;
+	margin-left: 13%;
 }
+
 button.btn.btn-primary.button3 {
-    width: 90%;
+	width: 90%;
 }
+
 .bodyStyle {
-    background-color: #dcd8d8;
+	background-color: #dcd8d8;
 }
+
 div.scroll {
-    width: 98%;
-    height: 400px;
-    overflow: scroll;
-    
-} 
+	width: 98%;
+	height: 400px;
+	overflow: scroll;
+}
 </style>
-  </head>
+</head>
 
 <body class="bodyStyle">
-<! -- Start of Header -->
-<nav class="navbar navbar">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Search Engine</a>
-    </div>
-    
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#" class="headerLeft"><span class="glyphicon glyphicon-home"> </span> Home</a></li>
-      <li><a href="#" class="headerLeft"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-    </ul>
-  </div>
-</nav>
-<! --End of Header -->  
+	<! -- Start of Header -->
+	<nav class="navbar navbar">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Search Engine</a>
+			</div>
 
-<div class="container-fuild">
-	<div class="row">
-		<div class="col-md-4" id="colLeftRow1"> 
-			 <div class="panel panel-default">
-				<div class="panel-body"><p>Aufgabe:</p>
-				<p>Bitte finden Sie den Speiseplan der Kantine in Hamburg Billerstedt und klicken darauf. </p>
-				<p>Für die Lösung erhalten Sie 50 Punkte.</p>
-				
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#" class="headerLeft"><span
+						class="glyphicon glyphicon-home"> </span> Home</a></li>
+				<li><a href="#" class="headerLeft"><span
+						class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+			</ul>
+		</div>
+	</nav>
+	<! --End of Header -->
+
+	<div class="container-fuild">
+		<div class="row">
+			<div class="col-md-4" id="colLeftRow1">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<p>Aufgabe:</p>
+						<p>Bitte finden Sie den Speiseplan der Kantine in Hamburg
+							Billerstedt und klicken darauf.</p>
+						<p>Für die Lösung erhalten Sie 50 Punkte.</p>
+
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-md-7" id="colLeftRow1"> 
-			<div class="row">
-				<div class="col-md-12" style="margin-top: -15px; margin-left: 8%;">
-					<div id="myProgress">
-						<div id="myBar">
-							<div id="label">60%
+			<div class="col-md-7" id="colLeftRow1">
+				<div class="row">
+					<div class="col-md-12" style="margin-top: -15px; margin-left: 8%;">
+						<div id="myProgress">
+							<div id="myBar">
+								<div id="label">60%</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row" id="secondRow">
-				<div class="panel panel-default">
-					<div id="showValue" class="panel-body"> 
+				<div class="row" id="secondRow">
+					<div class="panel panel-default">
+						<div id="showValue" class="panel-body"></div>
 					</div>
 				</div>
 			</div>
-		</div>		
-	</div>	
-	
-	 <div class="row">
-		
-		<div class="col-md-12" id="mainContent"> 
-			
-				<iframe src="sample.html"  style="width:98%; height:400px;" >
-				</iframe>
-			
-		</div>	
-	</div> 
-	
-	<!-- 
+		</div>
+
+		<div class="scroll" >
+
+			<div class="col-md-12" id="mainContent">
+
+
+				<div>
+					<img src="img/menubar.png" style="width: 104%; height: 10%; margin-left: -14px;" ></img> 
+				</div>
+				<div class="container-fuild">
+					<div class="row"  style="background-color: white;">
+						<div class="col-md-2" style="padding-left: 0%;">
+							<img src="img/LeftPanel.png" id="leftPanel"></img>
+						</div>
+						<div class="col-md-10">
+
+							<div class="row">
+								<div class="col-md-10" style="padding-left: 4%;padding-top: 4%;">
+									<input type="text" name="search"
+										placeholder="Enter the Text to search" class="SearchBox"
+										id="searchElement" onkeypress="handle(event);"> <label
+										style="color: #4C4646;">Erweitert Anleitung Zur Suche</label>
+
+
+									<div id="dialog-confirm"></div>
+
+								</div>
+								<div class="col-md-2">
+									<img src="img/logo.png" class="logo"></img>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12" style="padding-left: 4%; padding-top: 0%;">
+									<img src="img/MainPanel.png" class="MainPanel"></img>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+
+				<!-- <iframe src="sample.html"  style="width:98%; height:400px;" >
+				</iframe> -->
+
+			</div>
+		</div>
+
+		<!-- 
 	<div  >
 		<div class="scroll"> 
 			<iframe src="sample.html">
@@ -152,126 +218,250 @@ div.scroll {
 			
 		</div>	
 	</div> -->
-	
-	<div class="row">
-		<div class="col-md-3" > 
-			<button type="button"  class="btn btn-primary button1" id="aufgabe" onclick= "aufgabe();">Aufgabe Lösen (50 Punkte Abzug)</button>
-		</div>	
-		<div class="col-md-6" > 
-			<button type="button" class="btn btn-primary button2" id="hinweis" onclick="hinweis();"> Hinweis zur Lösung erhalten (10 Punkte Abzug) </button>
-		</div>	
-		<div class="col-md-3" > 
-			<button type="button" class="btn btn-primary button3" id="zuruck" onclick="zuruck();">zurück zur Erläuterung</button>
-		</div>	
+
+		<div class="row">
+			<div class="col-md-3">
+				<button type="button" class="btn btn-primary button1" id="aufgabe"
+					onclick="aufgabe();">Aufgabe Lösen (50 Punkte Abzug)</button>
+			</div>
+			<div class="col-md-6">
+				<button type="button" class="btn btn-primary button2" id="hinweis"
+					onclick="hinweis();">Hinweis zur Lösung erhalten (10
+					Punkte Abzug)</button>
+			</div>
+			<div class="col-md-3">
+				<button type="button" class="btn btn-primary button3" id="zuruck"
+					onclick="zuruck();">zurück zur Erläuterung</button>
+			</div>
+		</div>
+
+
+
+
 	</div>
-	
-	
-	
-	
-</div>
 
-<div id="dialog-confirm"> </div>
-<div id="dialog-aufgabe-confirm"> </div>
+	<div id="dialog-confirm"></div>
+	<div id="dialog-aufgabe-confirm"></div>
 
 
-	
+
 
 
 </body>
 
 
 
- <script>
-var aux=60;
-var divMsg="Aktuelles Level : Neueinsteiger <br> Gesammelte Punkte: ";
-$("#showValue").append(divMsg +   aux );
-var aufgabe = function(){
-		
+<script>
+	var aux = 60;
+	var divMsg = "Aktuelles Level : Neueinsteiger <br> Gesammelte Punkte: ";
+	$("#showValue").append(divMsg + aux);
+	var aufgabe = function() {
+
 		//alert("Sie hätten folgenden Text eingeben können: Billerstedt AND Speiseplan");
-		
-		if(aux >=50 ){
-			aux-=50;
-			
+
+		if (aux >= 50) {
+			aux -= 50;
+
 			//alert('hi 33');
-			$("#dialog-aufgabe-confirm").html('');		
-			$("#dialog-aufgabe-confirm").append("Sie hätten folgenden Text eingeben können: Billerstedt AND Speiseplan" );
-		   	$("#dialog-aufgabe-confirm").dialog('open');
-		   	
-		 	$('#showValue').html('');
-		   	$("#showValue").append(divMsg +   aux );
-		   	
-		   /* 	 var html = "<html><head></head><body><div id='msg'>";
+			$("#dialog-aufgabe-confirm").html('');
+			$("#dialog-aufgabe-confirm")
+					.append(
+							"Sie hätten folgenden Text eingeben können: Billerstedt AND Speiseplan");
+			$("#dialog-aufgabe-confirm").dialog('open');
+
+			$('#showValue').html('');
+			$("#showValue").append(divMsg + aux);
+
+			/* 	 var html = "<html><head></head><body><div id='msg'>";
 			html += "<h2 style='text-align:center;'> Sie haben die Aufgabe erfolgreich </h2>";
 			html += "<h2 style='text-align:center;'>gelöst!</h2>";
 			html += "<h2 id='punkte' style='text-align:center;'>Punkte: </h2>"; 
 			
-	         popUp(html); */
-	        
-	        //aux-=50;
-		//	$("#punkte").append(" " +   aux + "!" ); 
-			
-		}else{
-			$("#dialog-confirm").html('');		
-			$("#dialog-confirm").append("Leider verfügen Sie nicht über ausreichend Punkte um die Aufgabe lösen zu lassen." );
-		   	$("#dialog-confirm").dialog('open');
-		
-			
+			  popUp(html); */
+
+			//aux-=50;
+			//	$("#punkte").append(" " +   aux + "!" ); 
+		} else {
+			$("#dialog-confirm").html('');
+			$("#dialog-confirm")
+					.append(
+							"Leider verfügen Sie nicht über ausreichend Punkte um die Aufgabe lösen zu lassen.");
+			$("#dialog-confirm").dialog('open');
+
 		}
-		
+
 		/* var html = "<html><head></head><body><div id='msg'>";
 		html += "<h2 style='text-align:center;'> Sie haben die Aufgabe erfolgreich </h2>";
 		html += "<h2 style='text-align:center;'>gelöst!</h2>";
 		html += "<h2 id='punkte' style='text-align:center;'>Punkte: </h2>"; */
-		
-       /*  popUp(html);
-        
-        //aux-=50;
+
+		/*  popUp(html);
+		 
+		 //aux-=50;
 		$("#punkte").append(" " +   aux + "!" ); */
-		
-}
-	
-	
-	
-var hinweis = function(){
-	
-	if(aux <10 ){
-		
-		$("#dialog-confirm").html('');		
-		$("#dialog-confirm").append("Leider verfügen Sie nicht über ausreichend Punkte um sich einen Hinweis zur Lösung anzeigen zu lassen." );
-	   	$("#dialog-confirm").dialog('open');
-		
-	}else{
-		aux-=10;
-		$("#dialog-confirm").html('');		
-	$("#dialog-confirm").append("Um einen Speiseplan zu finden, würde sich beispielsweise der Suchbegriff Kantine oder Speiseplan in Verbindung mit dem Ort anbieten." );
-   	 $("#dialog-confirm").dialog('open');
-   	 
-   	$('#showValue').html('');
-   	$("#showValue").append(divMsg +   aux );
-   	
+
 	}
-   	
- 
-			
+
+	var hinweis = function() {
+
+		if (aux < 10) {
+
+			$("#dialog-confirm").html('');
+			$("#dialog-confirm")
+					.append(
+							"Leider verfügen Sie nicht über ausreichend Punkte um sich einen Hinweis zur Lösung anzeigen zu lassen.");
+			$("#dialog-confirm").dialog('open');
+
+		} else {
+			aux -= 10;
+			$("#dialog-confirm").html('');
+			$("#dialog-confirm")
+					.append(
+							"Um einen Speiseplan zu finden, würde sich beispielsweise der Suchbegriff Kantine oder Speiseplan in Verbindung mit dem Ort anbieten.");
+			$("#dialog-confirm").dialog('open');
+
+			$('#showValue').html('');
+			$("#showValue").append(divMsg + aux);
+
+		}
+
+	}
+	var zuruck = function() {
+		window.open("explainPage.html", "_self");
+
+	}
+	function popUp(html) {
+		var frog = window.open("result.html", "_self")
+		frog.document.open()
+		frog.document.write(html)
+		frog.document.close()
+	}
+	var handle = function(e) {
+		if (e.keyCode === 13) {
+			e.preventDefault();
+
+		}
+	}
+	$(function() {
+		$("#dialog-confirm").dialog({
+			resizable : false,
+			height : "auto",
+			autoOpen : false,
+			width : 400,
+			modal : true,
+			buttons : {
+				"OK" : function() {
+					$(this).dialog("close");
+				},
+			/*  Cancel: function() {
+			   $( this ).dialog( "close" );
+			 } */
+			}
+		});
+	});
+
+	$(function() {
+		$("#dialog-aufgabe-confirm")
+				.dialog(
+						{
+							resizable : false,
+							height : "auto",
+							autoOpen : false,
+							width : 400,
+							modal : true,
+							buttons : {
+								"OK" : function() {
+									$(this).dialog("close");
+
+									var html = "<html><head></head><body><div id='msg'>";
+									html += "<h2 style='text-align:center;'> Sie haben die Aufgabe erfolgreich </h2>";
+									html += "<h2 style='text-align:center;'>gelöst!</h2>";
+									html += "<h2 id='punkte' style='text-align:center;'>Punkte: </h2>";
+
+									popUp(html);
+
+									//aux-=50;
+									$("#punkte").append(" " + aux + "!");
+								},
+								Cancel : function() {
+									$(this).dialog("close");
+								}
+							}
+						});
+	});
 	
-}
-var zuruck = function(){
-	window.open("explainPage.html", "_self");
+	// Script For Sample Html
 	
 	
-}
-function popUp(html){
-var frog = window.open("result.html","_self")
-frog.document.open()
-frog.document.write(html)
-frog.document.close()
-}
+var optionalKeyWords= ["Kantine","Speiseplan","and","or"];
+var mandatoryKeyWords=["Billerstedt"];
+//var megedArray= optionalKeyWords.concat(mandatoryKeyWords);
+
+//var totalKeyLength= optionalKeyWords.length + mandatoryKeyWords.length;
+var mandatFlag=0;
+var optionalFlag = 0;
+
+//var aux=60;
+
 var handle =  function(e){
     if(e.keyCode === 13){
         e.preventDefault(); 
+
+        searchVal = document.getElementById("searchElement").value; 
+       
         
+        var searchaElements= searchVal.split(" ");
+        
+        for (i=0; i<searchaElements.length; i++){
+        	for(j=0; j< mandatoryKeyWords.length; j++){
+        		if(searchaElements[i]==mandatoryKeyWords[j])
+        			mandatFlag++;
+        		break;
+        	}
+        	
+        	for(j=0; j<optionalKeyWords.length; j++) {
+        		if(searchaElements[i]==optionalKeyWords[j])
+        			optionalFlag++;
+        	}
+        }
+       //alert("mandatFlag : " + mandatFlag + "optionalFlag : " + optionalFlag );
+        
+        if((mandatFlag < 1) || (optionalFlag<1)){
+        	
+        	//alert("Leider haben Sie nicht den richtigen Suchbegriff eingegeben");
+        	$("#dialog-confirm").html('');
+        	$("#dialog-confirm").append("Leider haben Sie nicht den richtigen Suchbegriff eingegeben" );
+        	 $("#dialog-confirm").dialog('open');
+        	
+        	
+        	
+        }else{
+        	
+
+       	aux+=50;
+        var html = "<html><head></head><body><div id='msg'>";
+		html += "<h2 style='text-align:center;'> Sie haben die Aufgabe erfolgreich </h2>";
+		html += "<h2 style='text-align:center;'>gelöst!</h2>";
+		html += "<h2 id='punkte1' style='text-align:center;'>Punkte: " + aux + "</h2>";
+		//html += " " + aux + "!";
+		// alert('aux : ' + aux);
+		
+		 
+		
+		  popUp(html);
+		  
+		//  $("#punkte1").append(" " +   aux + "!" );
+		
+		  
+		 
+        //	window.open('result.html','_parent');/* <a href="#"location.href='result.html'/> */
+        }
+        
+        mandatFlag =0;
+  		optionalFlag=0;
     }
 }
+
 $( function() {
     $( "#dialog-confirm" ).dialog({
       resizable: false,
@@ -288,36 +478,19 @@ $( function() {
         } */
       }
     });
-  } );
-  
-  
-$( function() {
-    $( "#dialog-aufgabe-confirm" ).dialog({
-      resizable: false,
-      height: "auto",
-      autoOpen: false,
-      width: 400,
-      modal: true,
-      buttons: {
-        "OK": function() {
-          $( this ).dialog( "close" );
-          
-          var html = "<html><head></head><body><div id='msg'>";
-			html += "<h2 style='text-align:center;'> Sie haben die Aufgabe erfolgreich </h2>";
-			html += "<h2 style='text-align:center;'>gelöst!</h2>";
-			html += "<h2 id='punkte' style='text-align:center;'>Punkte: </h2>"; 
-			
-	         popUp(html);
-	        
-	        //aux-=50;
-			$("#punkte").append(" " +   aux + "!" ); 
-        },
-         Cancel: function() {
-          $( this ).dialog( "close" );
-        } 
-      }
-    });
-  } );
-  
+  } );	
+
+
+
+
+function popUp(html){
+
+var frog = window.open("result.html","_parent")
+frog.document.open()
+frog.document.write(html)
+frog.document.close()
+
+}
+
 </script>
 </html>
