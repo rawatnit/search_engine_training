@@ -87,6 +87,11 @@ div#colRight {
 button.btn.btn-primary {
 	width:45%;
 }
+button.btn.headerleftmost{
+background-color: #0D47A1;
+font-family: 'Abril Fatface';
+color: white;
+}
 </style>
   </head>
 
@@ -97,11 +102,20 @@ button.btn.btn-primary {
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Search Engine</a>
     </div>
-    
+    <!-- <div class="reset">
+		 <button type="button" class="btn btn-primary" id="refresh" onclick="refresh();">reset</button>
+		</div> --> 
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#" class="headerLeft"><span class="glyphicon glyphicon-home"> </span> Home</a></li>
-      <li><a href="#" class="headerLeft"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      <li><a href="/logout" class="headerLeft" onclick="logout();"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      <li><a href="#" class="headerLeft" onclick="refresh();"><span class="glyphicon glyphicon-refresh"> </span> Reset</a></li>
+     <!--  <div class="reset">
+		 <button type="button" class="btn headerleftmost" id="refresh" onclick="refresh();"><span
+						class="glyphicon-refresh"></span>Reset</button>
+		</div> -->
     </ul>
+    
+    
   </div>
 </nav>
 <! --End of Header -->  
@@ -124,7 +138,7 @@ button.btn.btn-primary {
 		</div>
 		<div class="col-md-7" id="colRightRow2"> 
 			 <div class="panel panel-default">
-				<div class="panel-body">Aktuelles Level : Neueinsteiger <br> Gesammelte Punkte: 60	</div>
+				<div id="showValue" class="panel-body"></div>
 			</div>
 		</div>
 	<div class="row">
@@ -154,10 +168,47 @@ button.btn.btn-primary {
 		</div>
 	</div>
 	<div class="nextButton">
-		 <a class="btn btn-primary" href="hand_on.html">Next >></a></button>
+		 <a class="btn btn-primary" href="hand_on.html" id="transfer" onclick="transfer();">Weiter >></a></button>
 	</div>
 </div>
 
 
 </body>
+<script>
+
+var aux = 60;
+var tempflag = true;
+var temp =null;
+var divMsg = "Aktuelles Level : Neueinsteiger <br> Gesammelte Punkte: ";
+$("#showValue").append(divMsg + aux);
+
+var refresh = function() {
+	var aux = 60;
+var divMsg = "Aktuelles Level : Neueinsteiger <br> Gesammelte Punkte: ";
+$('#showValue').html('');
+$("#showValue").append(divMsg + aux);
+}
+var flag = sessionStorage.getItem("check")
+if(flag){
+$('#showValue').html('');
+$("#showValue").append(sessionStorage.getItem("showValue"));
+temp = sessionStorage.getItem("showValue");
+
+}
+
+var transfer = function() {
+	var aux = 60;
+var divMsg = "Aktuelles Level : Neueinsteiger <br> Gesammelte Punkte: ";
+$('#showValue').html('');
+$("#showValue").append(divMsg + aux);
+if(temp !=null){
+	sessionStorage.setItem("chkflag",tempflag);
+	sessionStorage.setItem("result", temp);
+}
+}
+
+var logout = function() {
+	sessionStorage.clear();
+}
+</script>
 </html>

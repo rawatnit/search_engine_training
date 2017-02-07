@@ -101,6 +101,12 @@ button.btn.btn-primary.button3 {
 	width: 90%;
 }
 
+button.btn.headerleftmost{
+background-color: #0D47A1;
+font-family: 'Abril Fatface';
+color: white;
+}
+
 .bodyStyle {
 	background-color: #dcd8d8;
 }
@@ -124,8 +130,13 @@ div.scroll {
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#" class="headerLeft"><span
 						class="glyphicon glyphicon-home"> </span> Home</a></li>
-				<li><a href="#" class="headerLeft"><span
+				<li><a href="/logout" class="headerLeft" onclick="logout();"><span
 						class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+						<!--  <div class="reset">
+		 <button type="button" class="btn headerleftmost" id="refresh" onclick="refresh();"><span
+						class="glyphicon glyphicon-refresh"></span>Reset</button>
+		</div> -->
+		 <li><a href="#" class="headerLeft" onclick="refresh();"><span class="glyphicon glyphicon-refresh"> </span> Reset</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -303,7 +314,8 @@ div.scroll {
 	}
 
 	var hinweis = function() {
-
+		var number=document.getElementById("showValue").value;
+		//alert(number);
 		if (aux < 10) {
 
 			$("#dialog-confirm").html('');
@@ -327,6 +339,10 @@ div.scroll {
 
 	}
 	var zuruck = function() {
+		var divMsg = "Aktuelles Level : Neueinsteiger <br> Gesammelte Punkte: ";
+		var flag = true;
+		sessionStorage.setItem("check",flag);
+		sessionStorage.setItem("showValue", divMsg + aux);
 		window.open("explainPage.html", "_self");
 
 	}
@@ -492,5 +508,24 @@ frog.document.close()
 
 }
 
+
+var refresh = function() {
+ aux = 60;
+var divMsg = "Aktuelles Level : Neueinsteiger <br> Gesammelte Punkte: ";
+$('#showValue').html('');
+$("#showValue").append(divMsg + aux);
+}
+
+var tempflag = sessionStorage.getItem("chkflag")
+if(tempflag){
+$('#showValue').html('');
+$("#showValue").append(sessionStorage.getItem("result"));
+//sessionStorage.clear();
+}
+
+
+var logout = function() {
+	sessionStorage.clear();
+}
 </script>
 </html>
