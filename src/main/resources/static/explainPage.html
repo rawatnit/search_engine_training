@@ -183,7 +183,9 @@ var divMsg = "Aktuelles Level : Neueinsteiger <br> Gesammelte Punkte: ";
 $("#showValue").append(divMsg + aux);
 
 var refresh = function() {
+	var refreshtemp =true;
 	var aux = 60;
+	//$("#auxId").val(aux);
 var divMsg = "Aktuelles Level : Neueinsteiger <br> Gesammelte Punkte: ";
 $('#showValue').html('');
 $("#showValue").append(divMsg + aux);
@@ -201,9 +203,21 @@ var transfer = function() {
 var divMsg = "Aktuelles Level : Neueinsteiger <br> Gesammelte Punkte: ";
 $('#showValue').html('');
 $("#showValue").append(divMsg + aux);
-if(temp !=null){
+transTemp = sessionStorage.getItem("showValue");
+var transValue=sessionStorage.getItem("val1");
+//alert("transValue ===>>>>>>"+transValue);
+if(transTemp !=null){
 	sessionStorage.setItem("chkflag",tempflag);
 	sessionStorage.setItem("result", temp);
+}
+if(transValue !=null && transValue != ""){
+	sessionStorage.setItem("val", transValue);
+}
+
+if(refreshtemp){
+	transValue =60;
+	sessionStorage.setItem("val", transValue);
+	refreshtemp =false;
 }
 }
 
